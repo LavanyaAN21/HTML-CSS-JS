@@ -1,0 +1,11 @@
+const weatherData = {
+    "New York": "Sunny, 25°C",
+    "London": "Cloudy, 18°C",
+    "Tokyo": "Rainy, 22°C"
+};
+
+document.getElementById('get-weather').addEventListener('click', () => {
+    const city = document.getElementById('city').value.trim();
+    const result = weatherData[city] || 'Weather data not available';
+    document.getElementById('weather-result').textContent = result;
+});
