@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif; 
+}
+
+.joke-generator { 
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+button {    
+    background-color: #1155CC;
+    color: white;
+    border: none;
+    border-radius: 10px; 
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0a3d8d;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 18px;
+}
