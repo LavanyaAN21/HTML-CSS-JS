@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Diary</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="personal-diary">
+        <h1>Personal Diary</h1>
+        <div class="diary-container">
+            <div class="diary-inputs">
+                <textarea id="diaryEntry" placeholder="Write your thoughts..."></textarea>
+                <div class="button-container">
+                    <button onclick="saveEntry()">Save Entry</button>
+                    <button onclick="clearEntry()">Clear</button>
+                </div>
+            </div>
+            <div id="entries">
+                <h2>Entries</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
