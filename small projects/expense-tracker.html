@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .expense-tracker {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1em;
+            width: calc(100% - 24px);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #expenseList {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        #expenseList li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+            color: #444;
+        }
+
+        #totalExpenses {
+            font-size: 1.2em;
+            margin-top: 15px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="expense-tracker">
+        <h1>Expense Tracker</h1>
+        <input type="text" id="expenseDescription" placeholder="Expense description">
+        <input type="number" id="expenseAmount" placeholder="Expense amount">
+        <button onclick="addExpense()">Add Expense</button>
+        <ul id="expenseList"></ul>
+        <div id="totalExpenses">Total: Rs.0</div>
+    </div>
+
+    <script>
+        let totalExpenses = 0;
+
+        function addExpense() {
+            const description = document.getElementById('expenseDescription').value;
+            const amount = parseInt(document.getElementById('expenseAmount').value);
+
+            // Validation check
+            if (!description || isNaN(amount) || amount <= 0) {
+                alert('Please enter a valid description and amount');
+                return;
+            }
+
+            // Create a new expense list item
+            const expenseList = document.getElementById('expenseList');
+            const newExpense = document.createElement('li');
+            newExpense.textContent = `${description}: Rs.${amount.toFixed(2)}`;
+            expenseList.appendChild(newExpense);
+
+            // Update the total expenses
+            totalExpenses += amount;
+            document.getElementById('totalExpenses').textContent = `Total: Rs.${totalExpenses.toFixed(2)}`;
+
+            // Clear input fields
+            document.getElementById('expenseDescription').value = '';
+            document.getElementById('expenseAmount').value = '';
+        }
+    </script>
+</body>
+</html>

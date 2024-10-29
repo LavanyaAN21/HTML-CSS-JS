@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Playlist</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .music-playlist {
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #1155CC;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0d47a1;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            width: 100%;
+        }
+        li {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 5px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="music-playlist">
+        <h1>Music Playlist</h1>
+        <input type="text" id="song-name" placeholder="Enter song name">
+        <button id="add-song">Add Song</button>
+        <ul id="playlist"></ul>
+    </div>
+
+    <script>
+        const songInput = document.getElementById('song-name');
+        const playlist = document.getElementById('playlist');
+
+        document.getElementById('add-song').addEventListener('click', () => {
+            const songName = songInput.value.trim();
+            if (songName) {
+                const li = document.createElement('li');
+                li.textContent = songName;
+                playlist.appendChild(li);
+                songInput.value = '';
+            }
+        });
+    </script>
+
+</body>
+</html>
